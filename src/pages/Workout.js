@@ -1,11 +1,13 @@
-import Header from "../components/Header";
+import React from 'react';
+import WorkoutComponent from '../components/WorkoutComponent';
 
-// eslint-disable-next-line import/no-anonymous-default-export
-export default function Workout() {
-    return (
-        <>
-            <Header />
-            <h2>Workout Creation page</h2>
-        </>
-    )
-}
+const Workout = () => {
+  return (
+    <div>
+      <h1>Create a Workout</h1>
+      <WorkoutComponent />
+    </div>
+  );
+};
+
+export default Workout;
