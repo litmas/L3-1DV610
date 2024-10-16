@@ -4,10 +4,13 @@ import Home from './pages/Home';
 import Exercise from './pages/Exercise';
 import Workout from './pages/Workout';
 import WorkoutSplit from './pages/WorkoutSplit';
+import Header from "./tailwindComps/Header";
+import '../src/tailwindComps/index.css'
 
 function App() {
   return (
     <BrowserRouter>
+    <Header />
       <div>
         <Routes>
           <Route path="/" element={<Home />} />
