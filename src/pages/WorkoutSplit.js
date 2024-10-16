@@ -1,11 +1,13 @@
-import Header from "../components/Header";
+import React from 'react';
+import WorkoutSplitComponent from '../components/WorkoutSplitComponent';
 
-// eslint-disable-next-line import/no-anonymous-default-export
-export default function WorkoutSplit() {    // capital W???
-    return (
-        <>
-            <Header />
-            <h2>Workout Split page</h2>
-        </>
-    )
-}
+const WorkoutSplit = () => {
+  return (
+    <div>
+      <h1>Create a Workout Split</h1>
+      <WorkoutSplitComponent />
+    </div>
+  );
+};
+
+export default WorkoutSplit;
