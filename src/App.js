@@ -1,22 +1,23 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom"
-import Home from '../src/pages/Home'
-import Exercise from '../src/pages/Exercise'
-import Workout from '../src/pages/Workout'
-import WorkoutSplit from '../src/pages/WorkoutSplit'
+import React from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Home from './pages/Home';
+import Exercise from './pages/Exercise';
+import Workout from './pages/Workout';
+import WorkoutSplit from './pages/WorkoutSplit';
 
 function App() {
   return (
-    <div> 
-      <BrowserRouter>
+    <BrowserRouter>
+      <div>
         <Routes>
-          <Route index element={<Home />}></Route>
-          <Route path="/Exercises" element={<Exercise />} />
-          <Route path="/Workout" element={<Workout />} />
-          <Route path="/WorkoutSplit" element={<WorkoutSplit />} />
+          <Route path="/" element={<Home />} />
+          <Route path="/exercise" element={<Exercise />} />
+          <Route path="/workout" element={<Workout />} />
+          <Route path="/workout-split" element={<WorkoutSplit />} />
         </Routes>
-      </BrowserRouter>
-    </div>
-  ) 
-} 
+      </div>
+    </BrowserRouter>
+  );
+}
 
 export default App;
