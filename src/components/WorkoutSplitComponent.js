@@ -3,6 +3,7 @@ import WorkoutPlanner from '../assignmentL2/workoutModule/workoutPlanner.js';
 
 const WorkoutSplitComponent = () => {
   const [splitType, setSplitType] = useState('');
+  const [tempSplitType, setTempSplitType] = useState(''); // Temporary state for user input
   const [workoutType, setWorkoutType] = useState('');
   const [difficulty, setDifficulty] = useState('');
   const [workoutPlan, setWorkoutPlan] = useState({});
@@ -14,7 +15,8 @@ const WorkoutSplitComponent = () => {
     event.preventDefault();
 
     try {
-      const createdSplit = await workoutPlanner.createWorkoutSplit(splitType, workoutType, difficulty);
+      setSplitType(tempSplitType); // Set the actual split type from temp state
+      const createdSplit = await workoutPlanner.createWorkoutSplit(tempSplitType, workoutType, difficulty);
       setWorkoutPlan(createdSplit);
       setError(null);
     } catch (err) {
@@ -28,7 +30,7 @@ const WorkoutSplitComponent = () => {
       <form onSubmit={handleSubmit}>
         <label>
           Split Type:
-          <select value={splitType} onChange={(e) => setSplitType(e.target.value)}>
+          <select value={tempSplitType} onChange={(e) => setTempSplitType(e.target.value)}>
             <option value="pplSplit">Push/Pull/Legs Split</option>
             <option value="arnoldSplit">Arnold Split</option>
             <option value="fullBodySplit">Full Body Split</option>
