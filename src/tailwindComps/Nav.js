@@ -8,10 +8,10 @@ import { useState } from 'react';
  */
 const NavLinks = () => (
   <div className="px-18">
-    <NavLink className="px-5" to="/">Home</NavLink>
-    <NavLink className="px-5" to="/exercise">Generate exercises</NavLink>
-    <NavLink className="px-5" to="/workout">Create workouts</NavLink>
-    <NavLink className="px-5" to="/workout-split">Create Workout Splits</NavLink>
+    <NavLink className="px-5 hover:bg-blue-100 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-50 rounded-lg" to="/">Home</NavLink>
+    <NavLink className="px-5 hover:bg-blue-100 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-50 rounded-lg" to="/exercise">Generate exercises</NavLink>
+    <NavLink className="px-5 hover:bg-blue-100 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-50 rounded-lg" to="/workout">Create workouts</NavLink>
+    <NavLink className="px-5 hover:bg-blue-100 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-50 rounded-lg" to="/workout-split">Create Workout Splits</NavLink>
   </div>
 );
 
