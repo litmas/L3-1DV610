@@ -8,7 +8,7 @@ class WorkoutSplitManager {
   /**
    * Constructor for creating a new instance.
    *
-   * @return {void}
+   * @returns {void}
    */
   constructor () {
     this.workoutPlanner = new WorkoutPlanner()
@@ -40,7 +40,6 @@ class WorkoutSplitManager {
  * @returns {JSX.Element} - The rendered workout plan component.
  */
 const WorkoutPlanRenderer = ({ workoutPlan }) => {
-
   /**
    * Renders details of a given exercise.
    *

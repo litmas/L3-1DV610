@@ -5,11 +5,12 @@ import WorkoutComponent from '../components/WorkoutComponent'
  * Class representing a WorkoutHandler which manages workouts.
  */
 class WorkoutHandler {
+  
   /**
    * Constructor for creating a new instance of the class.
    * Initializes the workouts array.
    *
-   * @return {void}
+   * @returns {void}
    */
   constructor () {
     this.workouts = []
@@ -20,8 +21,7 @@ class WorkoutHandler {
    * This method simulates creating a workout and adding it to the collection.
    *
    * @param {string} workoutName The name of the workout to be created.
-   *
-   * @return {Object} The newly created workout object with properties 'name' and 'id'.
+   * @returns {object} The newly created workout object with properties 'name' and 'id'.
    */
   createWorkout (workoutName) {
     // Example business logic

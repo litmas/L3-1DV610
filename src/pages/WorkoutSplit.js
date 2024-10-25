@@ -5,11 +5,12 @@ import WorkoutSplitComponent from '../components/WorkoutSplitComponent'
  * Class representing a handler for generating workout splits.
  */
 class WorkoutSplitHandler {
+
   /**
    * Constructor for creating a new instance of class.
    * Initializes the 'splits' property as an empty array.
    *
-   * @return {void}
+   * @returns {void}
    */
   constructor () {
     this.splits = []

@@ -1,17 +1,15 @@
 import ExerciseGenerator from './exerciseGenerator.js'
 import { getShoulderData } from '../API/exerciseAPI.js'
 
-
 /**
  * A class for creating and managing workout plans and split plans.
  */
 class WorkoutPlanner {
-
   /**
    * Constructor for creating a new instance of the class.
    * Initializes the exerciseGenerator property with a new instance of ExerciseGenerator.
    *
-   * @return {void}
+   * @returns {void}
    */
   constructor () {
     this.exerciseGenerator = new ExerciseGenerator()

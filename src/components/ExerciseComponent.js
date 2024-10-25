@@ -9,8 +9,8 @@ class ExerciseComponent extends React.Component {
   /**
    * Constructor for creating a new WorkoutForm component.
    *
-   * @param {Object} props - The properties passed to the component.
-   * @return {void}
+   * @param {object} props - The properties passed to the component.
+   * @returns {void}
    */
   constructor (props) {
     super(props)
@@ -34,6 +34,7 @@ class ExerciseComponent extends React.Component {
    * @param {object} event - The event object containing the target field's name and value.
    * @param {string} event.target.name - The name of the form field.
    * @param {string} event.target.value - The value of the form field.
+   * @param event.target
    * @returns {void}
    */
   handleInputChange ({ target: { name, value } }) {

@@ -10,8 +10,8 @@ class WorkoutComponent extends React.Component {
   /**
    * Constructs a new instance of the WorkoutForm component.
    *
-   * @param {Object} props - The properties passed to the WorkoutForm component.
-   * @return {void}
+   * @param {object} props - The properties passed to the WorkoutForm component.
+   * @returns {void}
    */
   constructor (props) {
     super(props)

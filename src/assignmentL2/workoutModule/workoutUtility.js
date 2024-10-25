@@ -1,4 +1,3 @@
-
 /**
  * Returns the recommended number of sets and reps based on the difficulty level.
  *
@@ -6,7 +5,6 @@
  * @returns {object} An object containing the recommended sets and reps.
  */
 class WorkoutUtility {
-  
   /**
    * Returns the recommended number of sets and reps based on the difficulty level.
    *

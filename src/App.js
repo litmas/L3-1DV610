@@ -13,6 +13,7 @@ import '../src/tailwindComps/index.css'
  * @returns {JSX.Element} The main application component containing routing elements.
  */
 function App () {
+  
   return (
     <BrowserRouter>
     <Header />

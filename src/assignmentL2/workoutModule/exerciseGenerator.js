@@ -1,6 +1,5 @@
 import { getExerciseData } from '../API/exerciseAPI.js'
 
-
 /**
  * Generates exercises based on the specified muscle, type, and difficulty.
  *
@@ -8,7 +7,6 @@ import { getExerciseData } from '../API/exerciseAPI.js'
  * @returns {Promise<Array>} - A promise that resolves to an array of exercises.
  */
 class ExerciseGenerator {
-  
   /**
    * Generates exercises based on the specified muscle, type, and difficulty.
    *

@@ -5,11 +5,11 @@ import ExerciseComponent from '../components/ExerciseComponent'
  * Represents a handler for managing exercise data.
  */
 class ExerciseHandler {
-
+  
   /**
    * Constructor for creating a new instance of exercise class.
-   * 
-   * @return {void}
+   *
+   * @returns {void}
    */
   constructor () {
     this.exercises = []
@@ -32,7 +32,7 @@ class ExerciseHandler {
  * Includes details for muscle, type, and difficulty selection.
  * Utilizes an ExerciseHandler for handling exercise related actions.
  * Renders an ExerciseComponent for interactive exercise generation.
- * 
+ *
  * @returns {JSX.Element} The Exercise component with parameters and ExerciseComponent.
  */
 const Exercise = () => {

@@ -1,5 +1,5 @@
 {
-  "name": "my-app",
+  "name": "kelvin",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -17,12 +17,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "lint": "npx eslint ./src || exit 0",
-    "lint:fix": "npx eslint ./src --fix || exit 0"
-  },
-  "eslintConfig": {
-    "extends": "@lnu"
+    "eject": "react-scripts eject"
   },
   "browserslist": {
     "production": [
@@ -37,13 +32,7 @@
     ]
   },
   "devDependencies": {
-    "tailwindcss": "^3.4.14",
-    "@lnu/eslint-config": "^1.1.10",
-    "eslint": "^8.57.0",
-    "eslint-config-standard": "^17.1.0",
-    "eslint-plugin-import": "^2.29.1",
-    "eslint-plugin-jsdoc": "^46.10.1",
-    "eslint-plugin-node": "^11.1.0",
-    "eslint-plugin-promise": "^6.6.0"
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
+    "tailwindcss": "^3.4.14"
   }
 }
