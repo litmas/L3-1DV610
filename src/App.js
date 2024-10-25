@@ -1,18 +1,18 @@
-import React from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Home from './pages/Home';
-import Exercise from './pages/Exercise';
-import Workout from './pages/Workout';
-import WorkoutSplit from './pages/WorkoutSplit';
-import Header from "./tailwindComps/Header";
+import React from 'react'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import Home from './pages/Home'
+import Exercise from './pages/Exercise'
+import Workout from './pages/Workout'
+import WorkoutSplit from './pages/WorkoutSplit'
+import Header from './tailwindComps/Header'
 import '../src/tailwindComps/index.css'
 
 /**
  * Renders the main application component that contains routing for different pages.
  *
- * @return {JSX.Element} The main application component containing routing elements.
+ * @returns {JSX.Element} The main application component containing routing elements.
  */
-function App() {
+function App () {
   return (
     <BrowserRouter>
     <Header />
@@ -25,7 +25,7 @@ function App() {
         </Routes>
       </div>
     </BrowserRouter>
-  );
+  )
 }
 
-export default App;
+export default App

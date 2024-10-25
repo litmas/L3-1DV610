@@ -1,12 +1,17 @@
-import React, { useState } from 'react';
-import WorkoutPlanner from '../assignmentL2/workoutModule/workoutPlanner.js';
+import React, { useState } from 'react'
+import WorkoutPlanner from '../assignmentL2/workoutModule/workoutPlanner.js'
 
 /**
  * Class representing a Workout Split Manager for creating workout plans.
  */
 class WorkoutSplitManager {
-  constructor() {
-    this.workoutPlanner = new WorkoutPlanner();
+  /**
+   * Constructor for creating a new instance.
+   *
+   * @return {void}
+   */
+  constructor () {
+    this.workoutPlanner = new WorkoutPlanner()
   }
 
   /**
@@ -15,26 +20,33 @@ class WorkoutSplitManager {
    * @param {string} selectedSplitType - The type of workout split selected (e.g., Upper/Lower, Push/Pull).
    * @param {string} workoutType - The type of workout (e.g., Strength training, Cardio).
    * @param {string} difficulty - The difficulty level of the workout split (e.g., Beginner, Intermediate, Advanced).
-   *
-   * @return {Object} An object containing the created workout split plan and any potential error message.
+   * @returns {object} An object containing the created workout split plan and any potential error message.
    */
-  async createWorkoutSplit(selectedSplitType, workoutType, difficulty) {
+  async createWorkoutSplit (selectedSplitType, workoutType, difficulty) {
     try {
-      const createdSplit = await this.workoutPlanner.createWorkoutSplit(selectedSplitType, workoutType, difficulty);
-      return { plan: createdSplit, error: null };
+      const createdSplit = await this.workoutPlanner.createWorkoutSplit(selectedSplitType, workoutType, difficulty)
+      return { plan: createdSplit, error: null }
     } catch (err) {
-      return { plan: {}, error: err.message };
+      return { plan: {}, error: err.message }
     }
   }
 }
 
 /**
  * Renders a workout plan with detailed exercise information for each day and muscle group.
- * @param {Object} props - The props object containing the workout plan to render.
- * @param {Object} props.workoutPlan - The workout plan object to render.
+ *
+ * @param {object} props - The props object containing the workout plan to render.
+ * @param {object} props.workoutPlan - The workout plan object to render.
  * @returns {JSX.Element} - The rendered workout plan component.
  */
 const WorkoutPlanRenderer = ({ workoutPlan }) => {
+
+  /**
+   * Renders details of a given exercise.
+   *
+   * @param {object} exercise - The exercise object containing details.
+   * @returns {JSX.Element} - JSX element with exercise details.
+   */
   const renderExerciseDetails = (exercise) => (
     <>
       <span className="font-semibold">Name:</span> {exercise.name} <br />
@@ -43,18 +55,20 @@ const WorkoutPlanRenderer = ({ workoutPlan }) => {
       <span className="font-semibold">Difficulty:</span> {exercise.difficulty} <br />
       <span className="font-semibold">Instructions:</span> {exercise.instructions}
     </>
-  );
+  )
 
   /**
    * Renders the workout plan for each day with corresponding muscle groups and exercises.
+   *
    * @returns {JSX.Element} The rendered workout plan
    */
   const renderWorkoutPlan = () => (
     Object.entries(workoutPlan).map(([day, muscles]) => (
       <div key={day} className="mb-6">
         <h3 className="text-lg font-bold text-gray-700">{day}</h3>
-        {typeof muscles === 'object' && !Array.isArray(muscles) ? (
-          Object.entries(muscles).map(([muscleGroup, exercises]) => (
+        {typeof muscles === 'object' && !Array.isArray(muscles)
+          ? (
+              Object.entries(muscles).map(([muscleGroup, exercises]) => (
             <div key={muscleGroup} className="mt-4">
               <h4 className="text-md font-bold text-gray-600">{muscleGroup}</h4>
               <ul className="list-disc list-inside mt-2">
@@ -65,21 +79,22 @@ const WorkoutPlanRenderer = ({ workoutPlan }) => {
                 ))}
               </ul>
             </div>
-          ))
-        ) : (
+              ))
+            )
+          : (
           <p>{muscles}</p>
-        )}
+            )}
       </div>
     ))
-  );
+  )
 
-  return <div>{renderWorkoutPlan()}</div>;
-};
+  return <div>{renderWorkoutPlan()}</div>
+}
 
 /**
  * Represents a form component for creating a workout split.
  *
- * @param {Object} WorkoutForm - The WorkoutForm component props.
+ * @param {object} WorkoutForm - The WorkoutForm component props.
  * @param {Function} WorkoutForm.onSubmit - Function to handle form submission.
  * @param {string} WorkoutForm.selectedSplitType - The selected split type for the workout.
  * @param {string} WorkoutForm.workoutType - The type of workout.
@@ -87,7 +102,6 @@ const WorkoutPlanRenderer = ({ workoutPlan }) => {
  * @param {Function} WorkoutForm.setSelectedSplitType - Function to set the selected split type.
  * @param {Function} WorkoutForm.setWorkoutType - Function to set the workout type.
  * @param {Function} WorkoutForm.setDifficulty - Function to set the workout difficulty.
- *
  * @returns {JSX.Element} - The WorkoutForm component.
  */
 const WorkoutForm = ({ onSubmit, selectedSplitType, workoutType, difficulty, setSelectedSplitType, setWorkoutType, setDifficulty }) => (
@@ -106,7 +120,7 @@ const WorkoutForm = ({ onSubmit, selectedSplitType, workoutType, difficulty, set
       ]}
     />
     <FormInput
-      label="Workout Type:"
+      label="Type:"
       value={workoutType}
       onChange={(e) => setWorkoutType(e.target.value)}
       required
@@ -124,32 +138,40 @@ const WorkoutForm = ({ onSubmit, selectedSplitType, workoutType, difficulty, set
       Create Workout Split
     </button>
   </form>
-);
+)
 
 /**
  * Functional component representing the Workout Split Component.
  * Manages the state for selected split type, workout type, difficulty, workout plan, error, and split type.
  * Utilizes a WorkoutSplitManager for creating workout splits.
  * Handles form submission and renders components based on state.
+ *
  * @returns {JSX.Element} The Workout Split Component JSX
  */
 const WorkoutSplitComponent = () => {
-  const [selectedSplitType, setSelectedSplitType] = useState('');
-  const [workoutType, setWorkoutType] = useState('');
-  const [difficulty, setDifficulty] = useState('');
-  const [workoutPlan, setWorkoutPlan] = useState({});
-  const [error, setError] = useState(null);
-  const [splitType, setSplitType] = useState('');
+  const [selectedSplitType, setSelectedSplitType] = useState('')
+  const [workoutType, setWorkoutType] = useState('')
+  const [difficulty, setDifficulty] = useState('')
+  const [workoutPlan, setWorkoutPlan] = useState({})
+  const [error, setError] = useState(null)
+  const [splitType, setSplitType] = useState('')
 
-  const workoutSplitManager = new WorkoutSplitManager();
+  const workoutSplitManager = new WorkoutSplitManager()
 
+  /**
+   * Handles form submission by preventing the default form behavior,
+   * creating a workout split based on selected parameters,
+   * and updating the workout plan, error state, and selected split type accordingly.
+   *
+   * @param {Event} event - The event object triggered by the form submission
+   */
   const handleFormSubmit = async (event) => {
-    event.preventDefault();
-    const { plan, error } = await workoutSplitManager.createWorkoutSplit(selectedSplitType, workoutType, difficulty);
-    setWorkoutPlan(plan);
-    setError(error);
-    setSplitType(selectedSplitType);
-  };
+    event.preventDefault()
+    const { plan, error } = await workoutSplitManager.createWorkoutSplit(selectedSplitType, workoutType, difficulty)
+    setWorkoutPlan(plan)
+    setError(error)
+    setSplitType(selectedSplitType)
+  }
 
   return (
     <div className="max-w-2xl mx-auto p-6 bg-gray-100 rounded-lg shadow-lg">
@@ -172,16 +194,17 @@ const WorkoutSplitComponent = () => {
         </div>
       )}
     </div>
-  );
-};
+  )
+}
 
 /**
  * A component for rendering a select dropdown form element with label and options.
+ *
  * @param {object} props - The props object
  * @param {string} props.label - The label to display for the select dropdown
  * @param {string} props.value - The current selected value for the select dropdown
- * @param {function} props.onChange - The callback function to handle value change
- * @param {array} props.options - The array of options to render in the select dropdown
+ * @param {Function} props.onChange - The callback function to handle value change
+ * @param {Array} props.options - The array of options to render in the select dropdown
  */
 const FormSelect = ({ label, value, onChange, options }) => (
   <label className="block">
@@ -198,14 +221,15 @@ const FormSelect = ({ label, value, onChange, options }) => (
       ))}
     </select>
   </label>
-);
+)
 
 /**
  * Represents a form input component.
- * @param {Object} props - The props object.
+ *
+ * @param {object} props - The props object.
  * @param {string} props.label - The label for the input field.
  * @param {string} props.value - The current value of the input field.
- * @param {function} props.onChange - The function to handle the input change event.
+ * @param {Function} props.onChange - The function to handle the input change event.
  * @param {boolean} props.required - Indicates if the input field is required.
  * @returns {JSX.Element} A JSX element representing a form input field with label.
  */
@@ -220,6 +244,6 @@ const FormInput = ({ label, value, onChange, required }) => (
       className="mt-1 block w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-green-500 focus:border-green-500"
     />
   </label>
-);
+)
 
-export default WorkoutSplitComponent;
+export default WorkoutSplitComponent

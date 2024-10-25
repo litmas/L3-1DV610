@@ -1,68 +1,73 @@
-import React from 'react';
-import WorkoutPlanner from '../assignmentL2/workoutModule/workoutPlanner';
+import React from 'react'
+import WorkoutPlanner from '../assignmentL2/workoutModule/workoutPlanner'
 
 /**
  * Class representing a Workout Component.
- * @extends React.Component
+ *
+ * @augments React.Component
  */
 class WorkoutComponent extends React.Component {
-  constructor(props) {
-    super(props);
+  /**
+   * Constructs a new instance of the WorkoutForm component.
+   *
+   * @param {Object} props - The properties passed to the WorkoutForm component.
+   * @return {void}
+   */
+  constructor (props) {
+    super(props)
     this.state = {
       muscles: '',
       type: '',
       difficulty: '',
       workout: {},
-      error: null,
-    };
+      error: null
+    }
 
-    this.handleInputChange = this.handleInputChange.bind(this);
-    this.handleFormSubmit = this.handleFormSubmit.bind(this);
-    this.workoutPlanner = new WorkoutPlanner();
+    this.handleInputChange = this.handleInputChange.bind(this)
+    this.handleFormSubmit = this.handleFormSubmit.bind(this)
+    this.workoutPlanner = new WorkoutPlanner()
   }
 
   /**
    * Handle input change event by updating state with new value.
    *
-   * @param {Object} event - The input change event object.
-   * @param {Object} event.target - The target element of the event.
+   * @param {object} event - The input change event object.
+   * @param {object} event.target - The target element of the event.
    * @param {string} event.target.name - The name of the target element.
    * @param {string} event.target.value - The new value of the target element.
-   *
-   * @return {void}
+   * @returns {void}
    */
-  handleInputChange({ target: { name, value } }) {
-    this.setState({ [name]: value });
+  handleInputChange ({ target: { name, value } }) {
+    this.setState({ [name]: value })
   }
 
   /**
    * Handles form submission by creating a workout plan based on user inputs.
    *
    * @param {Event} event - The event object triggered by the form submission.
-   *
-   * @return {Promise} - A Promise that resolves once the workout plan is created.
+   * @returns {Promise} - A Promise that resolves once the workout plan is created.
    */
-  async handleFormSubmit(event) {
-    event.preventDefault();
+  async handleFormSubmit (event) {
+    event.preventDefault()
 
-    const { muscles, type, difficulty } = this.state;
-    const muscleGroups = muscles.split(',').map(muscle => muscle.trim());
+    const { muscles, type, difficulty } = this.state
+    const muscleGroups = muscles.split(',').map(muscle => muscle.trim())
 
     try {
-      const workout = await this.workoutPlanner.createWorkout(muscleGroups, type, difficulty);
-      this.setState({ workout, error: null });
+      const workout = await this.workoutPlanner.createWorkout(muscleGroups, type, difficulty)
+      this.setState({ workout, error: null })
     } catch ({ message }) {
-      this.setState({ error: message });
+      this.setState({ error: message })
     }
   }
 
   /**
    * Renders the workout form and details section.
    *
-   * @return {JSX.Element} The rendered workout form and details section wrapped in a div element.
+   * @returns {JSX.Element} The rendered workout form and details section wrapped in a div element.
    */
-  render() {
-    const { muscles, type, difficulty, workout, error } = this.state;
+  render () {
+    const { muscles, type, difficulty, workout, error } = this.state
 
     return (
       <div className="max-w-lg mx-auto p-4 bg-gray-100 rounded-lg shadow-md">
@@ -70,7 +75,7 @@ class WorkoutComponent extends React.Component {
         {error && <p className="text-red-500 mt-4">Error: {error}</p>}
         {Object.keys(workout).length > 0 && this.renderWorkout(workout)}
       </div>
-    );
+    )
   }
 
   /**
@@ -79,10 +84,9 @@ class WorkoutComponent extends React.Component {
    * @param {string} muscles - The muscles input value.
    * @param {string} type - The workout type input value.
    * @param {string} difficulty - The workout difficulty input value.
-   *
-   * @return {JSX.Element} The rendered form element.
+   * @returns {JSX.Element} The rendered form element.
    */
-  renderForm(muscles, type, difficulty) {
+  renderForm (muscles, type, difficulty) {
     return (
       <form onSubmit={this.handleFormSubmit} className="space-y-4">
         {this.renderInput('Muscles (comma-separated)', 'muscles', muscles)}
@@ -90,7 +94,7 @@ class WorkoutComponent extends React.Component {
         {this.renderInput('Difficulty', 'difficulty', difficulty)}
         <button type="submit" className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-700">Create Workout</button>
       </form>
-    );
+    )
   }
 
   /**
@@ -99,10 +103,9 @@ class WorkoutComponent extends React.Component {
    * @param {string} label - The label text for the input field
    * @param {string} name - The name attribute for the input field
    * @param {string} value - The initial value for the input field
-   *
-   * @return {JSX.Element} An input field component with the specified label, name, and initial value
+   * @returns {JSX.Element} An input field component with the specified label, name, and initial value
    */
-  renderInput(label, name, value) {
+  renderInput (label, name, value) {
     return (
       <label className="block">
         <span className="text-gray-700">{label}:</span>
@@ -115,17 +118,16 @@ class WorkoutComponent extends React.Component {
           className="mt-1 block w-full border border-gray-300 rounded-md p-2"
         />
       </label>
-    );
+    )
   }
 
   /**
    * Render the workout plan based on the provided workout details.
    *
-   * @param {Object} workout - Workout details containing muscle groups and associated exercises.
-   *
-   * @return {JSX.Element} - JSX element representing the rendered workout plan.
+   * @param {object} workout - Workout details containing muscle groups and associated exercises.
+   * @returns {JSX.Element} - JSX element representing the rendered workout plan.
    */
-  renderWorkout(workout) {
+  renderWorkout (workout) {
     return (
       <div className="workout-plan mt-6 space-y-4">
         {Object.entries(workout).map(([muscle, exercises]) => (
@@ -137,7 +139,7 @@ class WorkoutComponent extends React.Component {
           </div>
         ))}
       </div>
-    );
+    )
   }
 
   /**
@@ -145,10 +147,9 @@ class WorkoutComponent extends React.Component {
    *
    * @param {object} exercise - The exercise object containing details like name, type, muscle, difficulty, and instructions.
    * @param {number} index - The index of the exercise in the list.
-   *
-   * @return {ReactElement} A list item element displaying exercise details.
+   * @returns {ReactElement} A list item element displaying exercise details.
    */
-  renderExerciseDetails(exercise, index) {
+  renderExerciseDetails (exercise, index) {
     return (
       <li key={index} className="mt-2">
         <p>Name: {exercise.name}</p>
@@ -157,8 +158,8 @@ class WorkoutComponent extends React.Component {
         <p>Difficulty: {exercise.difficulty}</p>
         <p>Instructions: {exercise.instructions}</p>
       </li>
-    );
+    )
   }
 }
 
-export default WorkoutComponent;
+export default WorkoutComponent
