@@ -8,6 +8,8 @@ Syftet med Workout Planner är att erbjuda en enkel och visuell lösning för at
 
 ## Installation och Användning
 
+Koden finns redan publicerad vid: https://kelvinsworkouts.netlify.app/ om man vill använda den men om man vill arbeta och förbättra koden följ instruktionerna nedan: 
+
 Klona repositoryt:
 
 ```
@@ -61,8 +63,4 @@ git@github.com:litmas/assignmentL2.git
 
 ## Framtida Utveckling
 
-För framtida versioner kan dessa funktioner övervägas:
-
-Anpassningsbara Workouts: Möjliggör att användare kan spara och dela sina träningspass
-Rekommendationssystem: Förslag på övningar baserat på användarens historik
-Progressionsspårning: Låt användarna logga och följa sin utveckling över tid.
+För att utveckla denna webbapplikation ytterligare så finns det i princip oändligt mycket som man kan förbättra och lägga till. Man kan förbättra modulen eller webbapplikationen eller både. Med moduler så finns det en begränsad mängd övningar vilket kan utökas, man kan också lägga till och bygga fler funktioner. Med webbapplikationen så kan man t.ex bygga en backend till det hela där användare kan sign up och logga in och sedan spara övningar, workouts och workout splits inom en databas. Man skulle också kunna bygga ett system som rekommenderar t.ex workouts till användaren. 
