@@ -7,6 +7,11 @@ import WorkoutSplit from './pages/WorkoutSplit';
 import Header from "./tailwindComps/Header";
 import '../src/tailwindComps/index.css'
 
+/**
+ * Renders the main application component that contains routing for different pages.
+ *
+ * @return {JSX.Element} The main application component containing routing elements.
+ */
 function App() {
   return (
     <BrowserRouter>
